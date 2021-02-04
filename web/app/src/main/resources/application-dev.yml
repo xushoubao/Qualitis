@@ -1,8 +1,8 @@
 spring:
   datasource:
-    username: default
-    password: default
-    url: jdbc:mysql://127.0.0.1:3306/qualitis_cdh_dev?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8
+    username: hive
+    password: 123456
+    url: jdbc:mysql://hadoop1:3306/dss_standload?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
@@ -30,9 +30,9 @@ restTemplate:
 task:
   persistent:
     type: jdbc
-    username: default
-    password: default
-    address: jdbc:mysql://127.0.0.1:3306/qualitis_cdh_dev?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8
+    username: hive
+    password: 123456
+    address: jdbc:mysql://hadoop1:3306/dss_standload
     tableName: qualitis_application_task_result
   execute:
     limit_thread: 10
@@ -74,12 +74,7 @@ linkis:
     meta_data:
       db_path: datasource/dbs
       table_path: datasource/tables
-      table_comment: datasource/getTableBaseInfo
       column_path: datasource/columns
-      column_info: datasource/getTableFieldsInfo
-  spark:
-    application:
-      name: IDE
   log:
     maskKey: task.persistent.username, task.persistent.password
 
